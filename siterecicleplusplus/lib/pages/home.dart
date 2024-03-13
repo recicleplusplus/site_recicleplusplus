@@ -23,6 +23,26 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  void openURLColetor() async {
+    const url =
+        'https://play.google.com/store/apps/details?id=com.leonardocamposdonor.recicle';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      /// Não è possível abrir a URL
+    }
+  }
+
+  void openURLDonor() async {
+    const url =
+        'https://play.google.com/store/apps/details?id=com.coletor.recicle';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      /// Não è possível abrir a URL
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -121,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               SizedBox(height: 20),
                               ElevatedButton(
-                                onPressed: _launchURL,
+                                onPressed: openURLColetor,
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.green,
                                   padding: EdgeInsets.symmetric(
@@ -145,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           width: 700,
                           height: 1100,
                           color: Colors.transparent,
-                          child: Image.asset('images/promocional1.png'),
+                          child: Image.asset('images/desingNovo.png'),
                         ),
                       ),
                       SizedBox(height: 50),
