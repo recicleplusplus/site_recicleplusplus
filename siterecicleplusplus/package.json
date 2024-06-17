@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase-tools": "^13.11.2",
+    "lru-cache": "^10.2.2"
+  }
+}
