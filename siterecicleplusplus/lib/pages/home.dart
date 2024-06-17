@@ -14,8 +14,35 @@ class _MyHomePageState extends State<MyHomePage> {
   late YoutubePlayerController _controller;
   final CarouselController _carouselController = CarouselController();
 
-  void _launchURL() async {
-    const url = 'https://www.example.com'; // Replace with your desired URL
+  void _Coletor() async {
+    const url = 'https://github.com/recicleplusplus/Coletor';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void _Doador() async {
+    const url = 'https://github.com/recicleplusplus/Donor';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void _Adm() async {
+    const url = 'https://github.com/recicleplusplus/manager';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void _DockerCliente() async {
+    const url = 'https://github.com/recicleplusplus/recicleplus_docker_client';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -25,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void openURLColetor() async {
     const url =
-        'https://play.google.com/store/apps/details?id=com.leonardocamposdonor.recicle';
+        'https://play.google.com/store/apps/details?id=com.recicleplusplus.Collector';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -67,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF198754),
         elevation: 0,
-        title: SingleChildScrollView(
+        title: const SingleChildScrollView(
           child: Row(
             children: [
               Text(
@@ -79,18 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   letterSpacing: 1.2,
                 ),
               ),
-              const SizedBox(width: 40),
-              const Text('Home'),
-              const SizedBox(width: 10),
-              const Text('Sobre'),
-              const SizedBox(width: 10),
-              const Text('Equipe'),
-              const SizedBox(width: 10),
-              const Text('Parceiros'),
-              const SizedBox(width: 10),
-              const Text('Vídeo'),
-              const SizedBox(width: 10),
-              const Text('GitHub'),
             ],
           ),
         ),
@@ -121,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'Recicle++ : App de Otimização de Rotas',
                                 style: TextStyle(
                                   fontSize: 42,
@@ -130,8 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   letterSpacing: 1.2,
                                 ),
                               ),
-                              SizedBox(height: 10),
-                              Text(
+                              const SizedBox(height: 10),
+                              const Text(
                                 'Deixe sua marca ajudando sua comunidade e o planeta.',
                                 style: TextStyle(
                                   fontSize: 25,
@@ -139,22 +154,27 @@ class _MyHomePageState extends State<MyHomePage> {
                                   letterSpacing: 1.2,
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               ElevatedButton(
                                 onPressed: openURLColetor,
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.green,
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 40, vertical: 20),
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.black),
+                                  padding: MaterialStateProperty.all<
+                                      EdgeInsetsGeometry>(
+                                    EdgeInsets.symmetric(
+                                        horizontal: 40, vertical: 20),
+                                  ),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Baixar App',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,
                                   ),
                                 ),
-                              ),
+                              )
                             ],
                           ),
                         ),
@@ -218,12 +238,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 100),
+                    const SizedBox(width: 100),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Rede de Softwares',
                             style: TextStyle(
                               fontSize: 40,
@@ -251,9 +271,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Card(
-              elevation: 5, // You can adjust the elevation as needed
+              elevation: 5,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -284,7 +304,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         const SizedBox(
                           height: 30,
                         ),
-                        Text(
+                        const Text(
                           'Os interessados podem ver a documentação do projeto através destes repositórios no Github.',
                           style: TextStyle(
                             fontSize: 20,
@@ -299,12 +319,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ElevatedButton(
-                              onPressed: _launchURL,
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.green,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 40,
-                                  vertical: 20,
+                              onPressed: _Doador,
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                padding: MaterialStateProperty.all<
+                                    EdgeInsetsGeometry>(
+                                  EdgeInsets.symmetric(
+                                      horizontal: 40, vertical: 20),
                                 ),
                               ),
                               child: Text(
@@ -319,12 +342,15 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 50,
                             ),
                             ElevatedButton(
-                              onPressed: _launchURL,
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.green,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 40,
-                                  vertical: 20,
+                              onPressed: _Coletor,
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                padding: MaterialStateProperty.all<
+                                    EdgeInsetsGeometry>(
+                                  EdgeInsets.symmetric(
+                                      horizontal: 40, vertical: 20),
                                 ),
                               ),
                               child: Text(
@@ -339,12 +365,15 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 50,
                             ),
                             ElevatedButton(
-                              onPressed: _launchURL,
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.green,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 40,
-                                  vertical: 20,
+                              onPressed: _Adm,
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                padding: MaterialStateProperty.all<
+                                    EdgeInsetsGeometry>(
+                                  EdgeInsets.symmetric(
+                                      horizontal: 40, vertical: 20),
                                 ),
                               ),
                               child: Text(
@@ -363,7 +392,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Center(
               child: Container(
                 width: 1500,
@@ -373,7 +402,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Sobre o Projeto',
                             style: TextStyle(
                               fontSize: 40,
@@ -382,7 +411,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               letterSpacing: 1.2,
                             ),
                           ),
-                          SizedBox(height: 80),
+                          const SizedBox(height: 80),
                           Container(
                             width: 800,
                             child: Text(
@@ -397,7 +426,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 100),
+                    const SizedBox(width: 100),
                     Container(
                       width: 500,
                       height: 1000,
@@ -414,7 +443,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               return Container(
                                 width: 400,
                                 height: 800,
-                                margin: EdgeInsets.symmetric(horizontal: 25),
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 25),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(
@@ -440,10 +470,85 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Container(
+                width: 900,
+                height: 300,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 62, 175, 122),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: SizedBox(
+                    width: 700,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Text(
+                          'Repositórios',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const Text(
+                          'Os interessados em fazer alterações na aplicação para fins diversos, baixar o docker fornecido nesse link do github. O tutorial de instalação se emcontra no readme.',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: _DockerCliente,
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                padding: MaterialStateProperty.all<
+                                    EdgeInsetsGeometry>(
+                                  EdgeInsets.symmetric(
+                                      horizontal: 40, vertical: 20),
+                                ),
+                              ),
+                              child: Text(
+                                'Docker',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 50),
             Container(
               height: 400,
-              color: Color.fromARGB(255, 62, 175, 122),
+              color: const Color.fromARGB(255, 62, 175, 122),
               child: Center(
                 child: SizedBox(
                   width: 1300,
@@ -491,7 +596,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             const Text("Vídeo de Apresentação"),
             Container(
               width: MediaQuery.of(context).size.width * 0.8,
@@ -503,11 +608,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 progressIndicatorColor: Colors.blueAccent,
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               color: const Color(0xFF198754),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -516,14 +621,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 40,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Seu Slogan Aqui',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -536,25 +633,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       SizedBox(width: 10),
                       Text(
-                        'contato@recicleapp.com',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.phone,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        '(123) 456-7890',
+                        'recicleplus.usp@gmail.com',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
