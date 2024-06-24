@@ -129,19 +129,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Container(
-              height: altura * 0.5,
-              width: largura,
               color: const Color(0xFF198754),
               child: Center(
                 child: Container(
-                  width: largura < 600 ? largura * 0.9 : largura,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Center(
                         child: Container(
                           width: largura < 600 ? largura * 0.9 : largura * 0.4,
-                          height: altura * 0.4,
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
                             color: const Color(0xFF198754),
@@ -149,7 +145,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            //crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               largura < 600 ? 
                               const Text(
@@ -523,16 +518,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Container(
-                width: largura < 600 ? largura *0.8 : 900,
-                height: altura < 1400 ? 750 : 500,
-                padding: EdgeInsets.all(8.0),
+                width: largura < 600 ? largura: 900,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 62, 175, 122),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
                   child: SizedBox(
-                    width: 700,
                     child: Column(
                       children: [
                         const SizedBox(
@@ -544,7 +536,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
-                            letterSpacing: 0.8,
+                            letterSpacing: 0.7,
                           ),
                         ),
                         const SizedBox(
@@ -555,7 +547,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
-                            letterSpacing: 0.8,
+                            letterSpacing: 0.7,
                           ),
                           textAlign: TextAlign.justify,
                         ),
@@ -766,7 +758,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 50),
              Container(
-              height: altura < 1400 ? altura *0.2 : 400,
+              width: largura < 600 ? largura * 1.2 : largura,
               color: const Color.fromARGB(255, 62, 175, 122),
               child: Center(
                 child: SizedBox(
@@ -792,22 +784,22 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset('images/ICMC.png',
-                              width: largura < 600 ? 100 : 250, height: altura < 1400 ? 100 : 250),
+                              width: largura < 600 ? 50 : 250, height: 150),
                           const SizedBox(
                             width: 50,
                           ),
                           Image.asset('images/usp.png',
-                              width: largura < 600 ? 100 : 250, height: altura < 1400 ? 100 : 250),
+                              width: largura < 600 ? 50 : 250, height: 150),
                           const SizedBox(
                             width: 50,
                           ),
                           Image.asset('images/Logo_CEFET-MG.png',
-                              width: largura < 600 ? 100 : 250, height: altura < 1400 ? 100 : 250),
+                              width: largura < 600 ? 50 : 250, height: 150),
                           const SizedBox(
                             width: 50,
                           ),
                           Image.asset('images/cepid.png',
-                              width: largura < 600 ? 100 : 250, height: altura < 1400 ? 100 : 250),
+                              width: largura < 600 ? 50 : 250, height: 150),
                         ],
                       ),
                     ],
@@ -854,6 +846,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 14,
                       color: Colors.white,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
