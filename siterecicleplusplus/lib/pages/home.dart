@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void openURLManager() async {
     const url =
-        'https://site-recicleplusplus.firebaseapp.com';
+        'https://reciclaplusnew.firebaseapp.com';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
