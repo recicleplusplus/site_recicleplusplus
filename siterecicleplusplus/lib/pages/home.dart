@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void openURLManager() async {
     const url =
-        'reciclaplusnew.web.app';
+        'https://site-recicleplusplus.firebaseapp.com';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -102,9 +102,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var largura = MediaQuery.of(context).size.width; //toda largura do dispositivo
     var altura =  MediaQuery.of(context).size.height; //todo comprimento do dispositivo
-    var alturaBarraStatus = MediaQuery.of(context).padding.top;
-    var alturaAppBar = AppBar().preferredSize.height;
-    var larguraItem = largura * 0.5;
+    double alturaContainer = 0.0;
+    if (altura >= 1024) {
+      alturaContainer = altura * 0.70; // 70% da altura da tela
+    } 
+    else if (altura >= 768) {
+      alturaContainer = altura * 0.80; // 80% da altura da tela
+    } 
+    else {
+      alturaContainer = altura * 0.90; // 90% da altura da tela
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF198754),
@@ -129,6 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Container(
+              height: alturaContainer,
               color: const Color(0xFF198754),
               child: Center(
                 child: Container(
@@ -320,10 +328,16 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           CarouselSlider(
                             items: [
-                              'images/inicio1.jpeg',
-                              'images/inicio2.jpeg',
+                              'images/imagem1.jpg',
+                              'images/imagem2.jpg',
                               'images/mapa.jpeg',
-                              // Adicione mais imagens aqui
+                              'images/imagem3.jpg',
+                              'images/imagem4.jpg',
+                              'images/imagem5.jpg',
+                              'images/imagem6.jpg',
+                              'images/imagem7.jpg',
+                              'images/imagem8.jpg',
+                              'images/imagem9.jpg'
                             ].map((imagePath) {
                               return Container(
                                 width: 400,
@@ -400,10 +414,16 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           CarouselSlider(
                             items: [
-                              'images/inicio1.jpeg',
-                              'images/inicio2.jpeg',
+                              'images/imagem1.jpg',
+                              'images/imagem2.jpg',
                               'images/mapa.jpeg',
-                              // Adicione mais imagens aqui
+                              'images/imagem3.jpg',
+                              'images/imagem4.jpg',
+                              'images/imagem5.jpg',
+                              'images/imagem6.jpg',
+                              'images/imagem7.jpg',
+                              'images/imagem8.jpg',
+                              'images/imagem9.jpg'
                             ].map((imagePath) {
                               return Container(
                                 width: 400,
