@@ -3,6 +3,43 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+class TeamMember extends StatelessWidget {
+  final String name;
+  final String role;
+  final String imageUrl;
+
+  const TeamMember({required this.name, required this.role, required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      elevation: 5,
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircleAvatar(
+              radius: 40,
+              backgroundImage: AssetImage(imageUrl),
+            ),
+            SizedBox(height: 10),
+            Text(
+              role,
+              style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
+            ),
+            Text(
+              name,
+              style: TextStyle(fontFamily: 'Montserrat'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -774,6 +811,84 @@ class _MyHomePageState extends State<MyHomePage> {
                 controller: _controller,
                 showVideoProgressIndicator: true,
                 progressIndicatorColor: Colors.blueAccent,
+              ),
+            ),
+            const SizedBox(height: 50),
+            Container(
+              width: largura < 600 ? largura * 1.2 : largura,
+              color: Color(0xFF65AB78), // Background color
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                 const Text(
+                    'Equipe',
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  const Text(
+                    'A equipe do Recicle++ é composta por integrantes do Cefet-MG e da USP, sendo eles dois professores e seis alunos',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                  Center(
+                  child: 
+                  Container(
+                    width: 420,
+                    child: 
+                    const Column(
+                      children: [
+                        Row(
+                        children: [
+                          TeamMember(
+                            name: 'Alisson Marques',
+                            role: 'Orientador',
+                            imageUrl: 'images/Alisson.jpg',
+                          ),
+                          TeamMember(
+                            name: 'Maristela Oliveira',
+                            role: 'Orientadora',
+                            imageUrl: 'images/Maristela.jpeg',
+                          ),
+                          TeamMember(
+                            name: 'Beatriz Lomes',
+                            role: 'Desenvolvedora',
+                            imageUrl: 'images/bia.jpeg',
+                          )
+                        ],
+                      ), 
+                     
+                      
+                      ],
+                    ),
+                  ),
+                  ),
+
+                  Center(
+                    child: Container(
+                      width: 300,
+                      child: const Row(
+                        children: [
+                          TeamMember(
+                            name: 'Leonardo Campos',
+                            role: 'Desenvolvedor',
+                            imageUrl: 'images/leo.jpg',
+                          ),
+                          TeamMember(
+                            name: 'Patrick Menezes',
+                            role: 'Desenvolvedor',
+                            imageUrl: 'images/patrick.jpg',
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20)
+                ],
               ),
             ),
             const SizedBox(height: 50),
