@@ -831,10 +831,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SizedBox(height: 10),
                   const Text(
-                    'A equipe do Recicle++ é composta por integrantes do Cefet-MG e da USP, sendo eles dois professores e seis alunos',
+                    'A equipe do Recicle++ é composta por integrantes do Cefet-MG e da USP, sendo eles dois professores e quatro alunos',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 24, color: Colors.white),
                   ),
+                  SizedBox(height: 20),
                   Center(
                   child: 
                   Container(
@@ -861,17 +862,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           )
                         ],
                       ), 
-                     
-                      
-                      ],
-                    ),
-                  ),
-                  ),
-
-                  Center(
-                    child: Container(
-                      width: 300,
-                      child: const Row(
+                       Row(
                         children: [
                           TeamMember(
                             name: 'Leonardo Campos',
@@ -879,18 +870,38 @@ class _MyHomePageState extends State<MyHomePage> {
                             imageUrl: 'images/leo.jpg',
                           ),
                           TeamMember(
+                            name: 'Gabriel Souza',
+                            role: 'Desenvolvedor',
+                            imageUrl: 'images/gabriel.jpg',
+                          ),
+                          TeamMember(
                             name: 'Patrick Menezes',
                             role: 'Desenvolvedor',
                             imageUrl: 'images/patrick.jpg',
                           )
-                        ],
-                      ),
+                        ],),
+                      
+                      ],
                     ),
                   ),
-                  SizedBox(height: 20)
+                  
+                  ),
+                
+                  SizedBox(height: 30),
+                  Container(
+                    width: 600,
+                    child: 
+                    const Text(
+                        'O projeto Recicle++ é uma ação conjunta do CEFET-MG Campus Divinópolis com o ICMC/USP. O Recicle++ consiste em três aplicativos: um para solicitar a coleta (Recicle++ Doador), um para realizar a coleta (Recicle++ Coletor) e um para administração e gerenciamento (Recicle++ Web).',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 24, color: Colors.white),
+                    ),
+                  ),
+                  
                 ],
               ),
             ),
+            
             const SizedBox(height: 50),
              Container(
               width: largura < 600 ? largura * 1.2 : largura,
