@@ -16,7 +16,10 @@ class TeamMember extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 5,
-      child: Padding(
+      child: Container(
+        width: 170,
+        height: 170,
+        child: Padding(
         padding: EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,6 +41,7 @@ class TeamMember extends StatelessWidget {
           ],
         ),
       ),
+      )
     );
   }
 }
@@ -886,10 +890,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(height: 20),
                         Center(
                           child: Container(
-                            width: 420,
+                            width: 712,
                             child: const Column(
                               children: [
-                                Row(
+                                SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child:  Row(
                                   children: [
                                     TeamMember(
                                       name: 'Alisson Marques',
@@ -902,13 +908,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                       imageUrl: 'images/Maristela.jpeg',
                                     ),
                                     TeamMember(
-                                      name: 'Beatriz Lomes',
+                                      name: 'Marianna Karenina',
+                                      role: 'Gestora de Projeto',
+                                      imageUrl: 'images/marianna.jpg',
+                                    ),
+                                    TeamMember(
+                                      name: 'Flaviane Louzeiro',
                                       role: 'Desenvolvedora',
-                                      imageUrl: 'images/bia.jpeg',
+                                      imageUrl: 'images/flaviane.jpg',
                                     )
                                   ],
-                                ),
-                                Row(
+                                ),),
+                                SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child:  Row(
                                   children: [
                                     TeamMember(
                                       name: 'Leonardo Campos',
@@ -924,9 +937,40 @@ class _MyHomePageState extends State<MyHomePage> {
                                       name: 'Patrick Menezes',
                                       role: 'Desenvolvedor',
                                       imageUrl: 'images/patrick.jpg',
+                                    ),
+                                    TeamMember(
+                                      name: 'Beatriz Lomes',
+                                      role: 'Desenvolvedora',
+                                      imageUrl: 'images/bia.jpeg',
                                     )
                                   ],
-                                ),
+                                ),),
+                                SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child:  Row(
+                                  children: [
+                                    TeamMember(
+                                      name: 'Vitor Laperriere',
+                                      role: 'Desenvolvedor',
+                                      imageUrl: 'images/vitor.jpg',
+                                    ),
+                                    TeamMember(
+                                      name: 'Moniely Silva',
+                                      role: 'Gestora de Marketing',
+                                      imageUrl: 'images/moniely.jpeg',
+                                    ),
+                                    TeamMember(
+                                      name: 'Gabriel Carvalho',
+                                      role: 'Desenvolvedor',
+                                      imageUrl: 'images/gabriel_carvalho.jpg',
+                                    ),
+                                    TeamMember(
+                                      name: 'Frederico Capanema',
+                                      role: 'Desenvolvedor',
+                                      imageUrl: 'images/frederico.jpg',
+                                    )
+                                    ,],
+                                  ),),
                               ],
                             ),
                           ),
@@ -946,6 +990,54 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            const SizedBox(height: 50),
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Container(
+                width: largura < 600 ? largura : 900,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 62, 175, 122),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: SizedBox(
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Apresentação',
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontFamily: 'Montserrat',
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Center(
+                          child: Image.asset('images/equipe_reunida.jpg')
+                        ),
+                        SizedBox(height: 30),
+                        Container(
+                          width: 600,
+                          child: const Text(
+                            'Apresentação da equipe na universidade de São Paulo, campus São Carlos em 2023.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 24, color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+
+
+
             const SizedBox(height: 50),
             Container(
               width: largura < 600 ? largura * 1.2 : largura,
