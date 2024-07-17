@@ -801,15 +801,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         const SizedBox(
                           height: 30,
                         ),
-                        const Text(
+                        Container(
+                          width: largura < 600 ? largura : 900,
+                          child: const Text(
                           'Os interessados em fazer alterações na aplicação para fins diversos, baixar o docker fornecido nesse link do github. O tutorial de instalação se encontra no readme.',
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
                             letterSpacing: 0.8,
                           ),
-                          textAlign: TextAlign.justify,
+                          textAlign: TextAlign.center,
+                          )
                         ),
+                        
                         const SizedBox(
                           height: 30,
                         ),
@@ -837,6 +841,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ],
+                        ),
+                        const SizedBox(
+                          height: 30,
                         ),
                       ],
                     ),
